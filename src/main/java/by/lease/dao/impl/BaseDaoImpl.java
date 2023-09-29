@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BaseDaoImpl<K, E> implements BaseDao<K, E> {
     private final Class<E> clazz;
-    private final EntityManager entityManager;
+    protected final EntityManager entityManager;
 
     @Override
     public List<E> findAll() {
