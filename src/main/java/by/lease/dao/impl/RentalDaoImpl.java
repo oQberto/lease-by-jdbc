@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static by.lease.entity.QAddress.address;
+import static by.lease.entity.QCity.city;
 import static by.lease.entity.QRental.rental;
 import static by.lease.entity.QStreet.street;
 
@@ -24,8 +25,10 @@ public class RentalDaoImpl extends BaseDaoImpl<Long, Rental> implements RentalDa
     public List<Rental> findAllRentalByCityId(Long id) {
         return new JPAQuery<Rental>(entityManager)
                 .select(rental)
-                .join(address, address)
-                .where(address.city.id.eq(id))
+                .from(rental)
+                .join(rental.address, address)
+                .join(address.city, city)
+                .where(city.id.eq(id))
                 .fetch();
     }
 
@@ -33,8 +36,9 @@ public class RentalDaoImpl extends BaseDaoImpl<Long, Rental> implements RentalDa
     public List<Rental> findAllRentalByStreetName(String name) {
         return new JPAQuery<Rental>(entityManager)
                 .select(rental)
-                .join(address, address)
-                .join(street, street)
+                .from(rental)
+                .join(rental.address, address)
+                .join(address.street, street)
                 .where(street.name.eq(name))
                 .fetch();
     }
@@ -44,6 +48,7 @@ public class RentalDaoImpl extends BaseDaoImpl<Long, Rental> implements RentalDa
         return Optional.ofNullable(
                 new JPAQuery<Rental>(entityManager)
                         .select(rental)
+                        .from(rental)
                         .where(rental.address.eq(address))
                         .fetchOne()
         );
