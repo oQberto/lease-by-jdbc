@@ -22,9 +22,6 @@ public class Address {
     @Column(name = "house_no")
     private Long houseNo;
 
-    @Column(name = "apartment_no")
-    private Long apartmentNo;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     private City city;

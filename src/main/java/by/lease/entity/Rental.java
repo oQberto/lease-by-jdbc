@@ -1,11 +1,13 @@
 package by.lease.entity;
 
+import by.lease.entity.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -33,7 +35,11 @@ public class Rental {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(fetch = LAZY)
+    @Column(name = "status")
+    @Enumerated(value = STRING)
+    private Status status;
+
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
