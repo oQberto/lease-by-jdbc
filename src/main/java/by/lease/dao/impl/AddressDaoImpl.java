@@ -4,6 +4,7 @@ import by.lease.dao.AddressDao;
 import by.lease.entity.Address;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AddressDaoImpl implements AddressDao {
 
@@ -13,7 +14,7 @@ public class AddressDaoImpl implements AddressDao {
     }
 
     @Override
-    public Address findById(Long id) {
+    public Optional<Address> findById(Long id) {
         return null;
     }
 

@@ -1,6 +1,5 @@
 package by.lease.entity;
 
-import by.lease.entity.enums.Amenities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +13,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Table(name = "rental_amenities")
 public class RentalAmenities {
 

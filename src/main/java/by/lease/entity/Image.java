@@ -13,13 +13,13 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "feature")
-public class Feature {
+@Table(name = "image")
+public class Image {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "image_path")
+    private String imagePath;
 }

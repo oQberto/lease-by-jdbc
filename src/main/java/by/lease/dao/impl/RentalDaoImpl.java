@@ -3,35 +3,16 @@ package by.lease.dao.impl;
 import by.lease.dao.RentalDao;
 import by.lease.entity.Address;
 import by.lease.entity.Rental;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 import java.util.Optional;
 
-public class RentalDaoImpl implements RentalDao {
 
-    @Override
-    public List<Rental> findAll() {
-        return null;
-    }
+public class RentalDaoImpl extends BaseDaoImpl<Long, Rental> implements RentalDao {
 
-    @Override
-    public Rental findById(Long id) {
-        return null;
-    }
-
-    @Override
-    public void save(Rental entity) {
-
-    }
-
-    @Override
-    public Rental update(Rental entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long id) {
-
+    public RentalDaoImpl(Class<Rental> clazz, EntityManager entityManager) {
+        super(clazz, entityManager);
     }
 
     @Override

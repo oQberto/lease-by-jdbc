@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -15,15 +17,13 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Table(name = "rental")
 public class Rental {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-
-    @Column(name = "images")
-    private String images;
 
     @Column(name = "price")
     private Double price;
@@ -34,6 +34,9 @@ public class Rental {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(fetch = LAZY)
+    private List<Image> images;
 
     @Column(name = "status")
     @Enumerated(value = STRING)

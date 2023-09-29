@@ -1,4 +1,4 @@
-package by.lease.entity.enums;
+package by.lease.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

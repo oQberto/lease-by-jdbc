@@ -1,0 +1,5 @@
+ALTER TABLE rental
+DROP COLUMN image_id;
+
+ALTER TABLE rental
+ADD COLUMN image_id BIGINT REFERENCES image(id);

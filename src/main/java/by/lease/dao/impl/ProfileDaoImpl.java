@@ -4,6 +4,7 @@ import by.lease.dao.ProfileDao;
 import by.lease.entity.Profile;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ProfileDaoImpl implements ProfileDao {
 
@@ -13,7 +14,7 @@ public class ProfileDaoImpl implements ProfileDao {
     }
 
     @Override
-    public Profile findById(Long id) {
+    public Optional<Profile> findById(Long id) {
         return null;
     }
 

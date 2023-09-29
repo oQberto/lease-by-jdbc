@@ -4,6 +4,7 @@ import by.lease.dao.AboutDao;
 import by.lease.entity.About;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AboutDaoImpl implements AboutDao {
 
@@ -13,7 +14,7 @@ public class AboutDaoImpl implements AboutDao {
     }
 
     @Override
-    public About findById(Long id) {
+    public Optional<About> findById(Long id) {
         return null;
     }
 

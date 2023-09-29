@@ -1,12 +1,13 @@
 package by.lease.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BaseDao <K, E> {
 
     List<E> findAll();
 
-    E findById(K id);
+    Optional<E> findById(K id);
 
     void save(E entity);
 
