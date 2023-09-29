@@ -2,34 +2,11 @@ package by.lease.dao.impl;
 
 import by.lease.dao.AddressDao;
 import by.lease.entity.Address;
+import jakarta.persistence.EntityManager;
 
-import java.util.List;
-import java.util.Optional;
+public class AddressDaoImpl extends BaseDaoImpl<Long, Address> implements AddressDao {
 
-public class AddressDaoImpl implements AddressDao {
-
-    @Override
-    public List<Address> findAll() {
-        return null;
-    }
-
-    @Override
-    public Optional<Address> findById(Long id) {
-        return null;
-    }
-
-    @Override
-    public void save(Address entity) {
-
-    }
-
-    @Override
-    public Address update(Address entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long id) {
-
+    public AddressDaoImpl(Class<Address> clazz, EntityManager entityManager) {
+        super(clazz, entityManager);
     }
 }
